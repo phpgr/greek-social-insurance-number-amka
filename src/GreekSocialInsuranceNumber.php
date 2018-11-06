@@ -20,7 +20,7 @@ final class GreekSocialInsuranceNumber
     public function __construct(string $number)
     {
         self::assert($number);
-        $this->number = $number;
+        $this->number = trim($number);
         $this->dateOfBirth = \DateTimeImmutable::createFromFormat('dmy', substr($number, 0, 6));
     }
 
