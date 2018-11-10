@@ -32,7 +32,9 @@ final class GreekSocialInsuranceNumber
     {
         $number = trim($number);
         if ($number === '') {
-            throw new InvalidGreekSocialInsuranceNumberException('Social Insurance number (AMKA) can not be an empty string');
+            throw new InvalidGreekSocialInsuranceNumberException(
+                'Social Insurance number (AMKA) can not be an empty string'
+            );
         }
 
         if (is_numeric($number) === false || ((int)$number) === 0) {

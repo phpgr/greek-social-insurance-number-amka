@@ -27,9 +27,9 @@
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "check-style": "phpcs src tests",
-        "fix-style": "phpcbf src tests"
+        "test": "php vendor/bin/phpunit --colors",
+        "phpcs": "php vendor/bin/phpcs src tests",
+        "phpcbf": "php vendor/bin/phpcbf src tests"
     },
     "extra": {
         "branch-alias": {
