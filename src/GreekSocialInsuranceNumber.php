@@ -25,28 +25,33 @@ final class GreekSocialInsuranceNumber
     }
 
     /**
-     * @param string $socialInsuranceNumber
-     * @param string|null $gender
-     * @param \DateTimeInterface|null $dateOfBirth
+     * @param string $number
      * @throws InvalidGreekSocialInsuranceNumberException
      */
-    public static function assert(
-        string $socialInsuranceNumber,
-        string $gender = null,
-        \DateTimeInterface $dateOfBirth = null
-    ) {
-        $socialInsuranceNumber = trim($socialInsuranceNumber);
-        if (strlen($socialInsuranceNumber) !== 11) {
-            throw new InvalidGreekSocialInsuranceNumberException('Length of %s Social Insurance number (AMKA) is invalid', $socialInsuranceNumber);
+    public static function assert(string $number)
+    {
+        $number = trim($number);
+        if ($number === '') {
+            throw new InvalidGreekSocialInsuranceNumberException('Social Insurance number (AMKA) can not be an empty string');
         }
 
-        if (is_numeric($socialInsuranceNumber) === false) {
-            throw new InvalidGreekSocialInsuranceNumberException('Social Insurance number (AMKA) %s is not a numeric value.', $socialInsuranceNumber);
+        if (is_numeric($number) === false || ((int)$number) === 0) {
+            throw new InvalidGreekSocialInsuranceNumberException(
+                sprintf('Social Insurance number (AMKA) %s is not a numeric value.', $number)
+            );
         }
 
-        $dateOfBirthCompare = \DateTimeImmutable::createFromFormat('dmy', substr($socialInsuranceNumber, 0, 6));
+        if (strlen($number) !== 11) {
+            throw new InvalidGreekSocialInsuranceNumberException(
+                sprintf('Length of %s Social Insurance number (AMKA) is invalid', $number)
+            );
+        }
+
+        $dateOfBirthCompare = \DateTimeImmutable::createFromFormat('dmy', substr($number, 0, 6));
         if ($dateOfBirthCompare === false) {
-            throw new InvalidGreekSocialInsuranceNumberException('Date of birth part of Social insurance number is invalid');
+            throw new InvalidGreekSocialInsuranceNumberException(
+                sprintf('The date of birth part of %s Social insurance number (AMKA) is invalid', $number)
+            );
         }
     }
 
