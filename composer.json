@@ -2,7 +2,8 @@
     "name": "phpgr/greek_social_insurance_number",
     "description": "A value object class to for Greek Social Insurance Number (AMKA)",
     "license": "MIT",
-    "homepage": "https://github.com/phpgr/php_valid_AMKA",
+    "homepage": "https://github.com/phpgr/greek_social_insurance_number",
+    "keywords": ["greek", "greece", "library", "value-object"],
     "authors": [
         {
             "name": "George Mponos",
