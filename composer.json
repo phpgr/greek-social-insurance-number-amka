@@ -1,5 +1,5 @@
 {
-    "name": "phpgr/greek_social_insurance_number",
+    "name": "phpgr/greek-social-insurance-number",
     "description": "A value object class to for Greek Social Insurance Number (AMKA)",
     "license": "MIT",
     "homepage": "https://github.com/phpgr/greek_social_insurance_number",
